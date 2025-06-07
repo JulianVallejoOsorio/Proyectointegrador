@@ -1,0 +1,121 @@
+.container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #000;
+    /* Letras negras */
+    margin-bottom: 1.5rem;
+}
+
+.search-bar {
+    display: block;
+    margin: 0 auto 1rem auto;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    max-width: 400px;
+    border: 2px solid #000;
+    /* Solo aquí borde negro */
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #000;
+    /* Texto negro */
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filters label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    color: #000;
+    /* Letras negras */
+    font-weight: 600;
+    /* Sin bordes para que no se vean feos */
+    user-select: none;
+    transition: background-color 0.3s ease;
+}
+
+.filters label:hover {
+    background-color: #e0e0e0;
+}
+
+.filters input[type="checkbox"] {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+.product-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.product-card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease;
+    height: 350px;
+    /* Tamaño fijo de altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Sin borde */
+}
+
+.product-card:hover {
+    transform: scale(1.02);
+}
+
+.product-card img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    /* Sin borde en imagen */
+}
+
+.product-card h3 {
+    font-size: 1.1rem;
+    margin: 0.8rem 0 0.3rem;
+    color: #000;
+    /* Letras negras */
+    flex-grow: 1;
+    /* Que tome espacio para que el botón quede abajo */
+}
+
+.product-card p {
+    color: #000;
+    /* Precio negro */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.product-card button {
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+    background-color: #388E3C;
+}
