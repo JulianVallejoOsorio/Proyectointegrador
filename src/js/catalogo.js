@@ -4,14 +4,14 @@ const productos = [
     nombre: "Tijeras de Poda",
     categoria: "Herramientas",
     precio: 25000,
-    imagen: "img/tijeras.jpg",
+    imagen: "https://github.com/JulianVallejoOsorio/Proyectointegrador/blob/main/src/images/productos/fs120R-removebg-preview.png?raw=true",
   },
   {
     id: 2,
     nombre: "Guantes de Jardinería",
     categoria: "Accesorios",
     precio: 10000,
-    imagen: "img/guantes.jpg",
+    imagen: "https://github.com/JulianVallejoOsorio/Proyectointegrador/blob/main/src/images/productos/fs120R-removebg-preview.png?raw=true",
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ function mostrarProductos(productosFiltrados) {
   grid.innerHTML = "";
 
   if (productosFiltrados.length === 0) {
-    grid.innerHTML = "<p>No se encontraron productos.</p>";
+    grid.innerHTML = "<p>No se encontraron productos..</p>";
     return;
   }
 
@@ -63,9 +63,7 @@ function mostrarProductos(productosFiltrados) {
 
 // Función para filtrar productos por búsqueda y categorías seleccionadas
 function filtrarProductos() {
-  const textoBusqueda = document
-    .getElementById("searchInput")
-    .value.toLowerCase();
+  const textoBusqueda = document.getElementById("searchInput").value.toLowerCase();
   const checkboxes = document.querySelectorAll(
     ".filters input[type='checkbox']"
   );
