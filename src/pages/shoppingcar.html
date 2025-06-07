@@ -8,6 +8,7 @@
     <meta name="description"
         content="Conocé las mejores herramientas para agricultura y jardinería. Calidad, rendimiento y asesoramiento personalizado.">
     <!-- Referencia hoja de estilos de el index (homePage) -->
+    <link rel="stylesheet" href="../styles/carrito.css">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/keyframes.css">
@@ -39,7 +40,7 @@
                             <a href="../../index.html">Inicio</a>
                         </li>
                         <li class="navItems">
-                            <a href="#">Catalogo</a>
+                            <a href="../pages/catalogo.html">Catalogo</a>
                         </li>
                         <li class="navItems">
                             <a href="../pages/aboutus.html">Sobre nosotros</a>
@@ -48,11 +49,6 @@
                 </div>
                 <div class="navbar_tools">
                     <ul class="navbar_tools-icons">
-                        <li class="navbar_icons">
-                            <a href="#">
-                                <img src="../images/svg_icons/heart.svg" alt="Favoritos">
-                            </a>
-                        </li>
                         <li class="navbar_icons">
                             <a href="../pages/shoppingcar.html">
                                 <img src="../images/svg_icons/shopping-cart.svg" alt="Carrito">
@@ -75,16 +71,13 @@
                                 <a href="../../index.html">Inicio</a>
                             </li>
                             <li class="navItems-mobile">
-                                <a href="#">Catalogo</a>
+                                <a href="../pages/catalogo.html">Catalogo</a>
                             </li>
                             <li class="navItems-mobile">
                                 <a href="../pages/aboutus.html">Sobre nosotros</a>
                             </li>
                             <li class="navItems-mobile buttons">
                                 <a href="#">Iniciar sesion</a>
-                            </li>
-                            <li class="navItems-mobile buttons">
-                                <a href="#">Favoritos</a>
                             </li>
                             <li class="navItems-mobile buttons">
                                 <a href="../pages/shoppingcar.html">Carrito</a>
@@ -94,7 +87,12 @@
             </nav>
         </section>
     </header>
-    <main>
+    <main class="carrito-container">
+        <h2>Carrito de Compras</h2>
+        <div id="carritoItems" class="carrito-items"></div>
+        <h3 id="totalCarrito" class="total-carrito">Total: $0</h3>
+        <button id="finalizarCompraBtn" class="finalizar-compra-btn">Finalizar Compra</button>
+    </main>
 
     </main>
     <aside>
@@ -217,6 +215,7 @@
         </section>
     </footer>
     <!-- Referencia la hoja donde tenemos todo el js -->
+    <script src="../js/carrito.js"></script>
     <script src="../js/script.js"></script>
     <script src="../js/index.js"></script>
 </body>

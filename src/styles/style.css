@@ -82,15 +82,14 @@
     align-items: center;
 }
 
-.navbar_nav>* {
-    margin-left: 40px;
-}
 
 /* Links de la navbar */
 
 .navbar_links {
     display: flex;
     list-style: none;
+    position: relative;
+    right: 60px;
 }
 
 .navItems {
@@ -131,7 +130,7 @@ a {
 
 
 /* Botones */
-.navbar_tools{
+.navbar_tools {
     display: flex;
     align-items: center;
 }

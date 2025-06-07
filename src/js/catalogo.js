@@ -4,14 +4,16 @@ const productos = [
     nombre: "Tijeras de Poda",
     categoria: "Herramientas",
     precio: 25000,
-    imagen: "https://github.com/JulianVallejoOsorio/Proyectointegrador/blob/main/src/images/productos/fs120R-removebg-preview.png?raw=true",
+    imagen:
+      "https://github.com/JulianVallejoOsorio/Proyectointegrador/blob/main/src/images/productos/fs120R-removebg-preview.png?raw=true",
   },
   {
     id: 2,
     nombre: "Guantes de Jardinería",
     categoria: "Accesorios",
     precio: 10000,
-    imagen: "https://github.com/JulianVallejoOsorio/Proyectointegrador/blob/main/src/images/productos/fs120R-removebg-preview.png?raw=true",
+    imagen:
+      "https://github.com/JulianVallejoOsorio/Proyectointegrador/blob/main/src/images/productos/fs120R-removebg-preview.png?raw=true",
   },
   {
     id: 3,
@@ -36,13 +38,12 @@ const productos = [
   },
 ];
 
-// Función para mostrar productos en el grid según filtros y búsqueda
 function mostrarProductos(productosFiltrados) {
   const grid = document.getElementById("productGrid");
   grid.innerHTML = "";
 
   if (productosFiltrados.length === 0) {
-    grid.innerHTML = "<p>No se encontraron productos..</p>";
+    grid.innerHTML = "<p>No se encontraron productos.</p>";
     return;
   }
 
@@ -53,17 +54,17 @@ function mostrarProductos(productosFiltrados) {
       <img src="${producto.imagen}" alt="${producto.nombre}">
       <h3>${producto.nombre}</h3>
       <p>$${producto.precio.toLocaleString()}</p>
-      <button onclick="agregarAlCarrito(${
-        producto.id
+      <button onclick="agregarAlCarrito(${producto.id
       })">Agregar al carrito</button>
     `;
     grid.appendChild(card);
   });
 }
 
-// Función para filtrar productos por búsqueda y categorías seleccionadas
 function filtrarProductos() {
-  const textoBusqueda = document.getElementById("searchInput").value.toLowerCase();
+  const textoBusqueda = document
+    .getElementById("searchInput")
+    .value.toLowerCase();
   const checkboxes = document.querySelectorAll(
     ".filters input[type='checkbox']"
   );
@@ -72,21 +73,32 @@ function filtrarProductos() {
     .map((ch) => ch.value);
 
   const productosFiltrados = productos.filter((prod) => {
-    const matchesCategoria = categoriasSeleccionadas.includes(prod.categoria);
-    const matchesBusqueda = prod.nombre.toLowerCase().includes(textoBusqueda);
-    return matchesCategoria && matchesBusqueda;
+    const coincideCategoria =
+      categoriasSeleccionadas.length === 0 ||
+      categoriasSeleccionadas.includes(prod.categoria);
+    const coincideBusqueda = prod.nombre.toLowerCase().includes(textoBusqueda);
+    return coincideCategoria && coincideBusqueda;
   });
 
   mostrarProductos(productosFiltrados);
 }
 
-// Agregar producto al carrito guardando en localStorage
 function agregarAlCarrito(idProducto) {
+  const producto = productos.find((p) => p.id === idProducto);
+  if (!producto) return;
+
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-  carrito.push(idProducto);
+  const index = carrito.findIndex((item) => item.id === idProducto);
+  if (index >= 0) {
+    carrito[index].cantidad += 1;
+  } else {
+    carrito.push({ ...producto, cantidad: 1 });
+  }
+
   localStorage.setItem("carrito", JSON.stringify(carrito));
-  alert("Producto agregado al carrito");
+  alert(`"${producto.nombre}" agregado al carrito`);
 }
 
-// Mostrar todos los productos inicialmente
-mostrarProductos(productos);
+document.addEventListener("DOMContentLoaded", () => {
+  mostrarProductos(productos);
+});
