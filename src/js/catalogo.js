@@ -96,7 +96,13 @@ function agregarAlCarrito(idProducto) {
   }
 
   localStorage.setItem("carrito", JSON.stringify(carrito));
-  alert(`"${producto.nombre}" agregado al carrito`);
+  Swal.fire({
+    icon: 'success',
+    title: 'Producto agregado',
+    text: `"${producto.nombre}" agregado al carrito`,
+    timer: 1500,
+    showConfirmButton: false,
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
